@@ -1,0 +1,21 @@
+<html>
+<body>
+   <h2>Text file</h2>
+   <p> Enter the file content:- </p>
+   <textarea rows="15" cols="50"> </textarea>
+   <br/> 
+   <button onclick = "downloadFile()"> Save File </button>
+   <script>
+      const downloadFile = () => {
+         const link = document.createElement("a");
+         const content = document.querySelector("textarea").value;
+         const file = new Blob(["jithendra"], { type: 'text/plain' });
+         link.href = URL.createObjectURL(file);
+         link.download = "sample.txt";
+         link.click();
+         URL.revokeObjectURL(link.href);
+      };
+      downloadFile();
+   </script>
+</body>
+</html>
